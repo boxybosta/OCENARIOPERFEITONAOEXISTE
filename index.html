@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ACESSO RESTRITO</title>
+    <title>NÓS PARA SEMPRE</title>
 
     <style>
         * {
@@ -37,22 +36,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .instruction {
-            position: absolute;
-            top: 9%;
-            text-align: center;
-            font-size: 16px;
-            letter-spacing: 3px;
-        }
-
-        #counter {
-            position: absolute;
-            top: 15%;
-            color: #888;
-            font-size: 13px;
-            letter-spacing: 2px;
         }
 
         #target {
@@ -197,15 +180,9 @@
 
 <body>
 
-    <!-- PRIMEIRA ETAPA: ENCONTRAR O CÍRCULO -->
+    <!-- PRIMEIRA ETAPA: CÍRCULO VERMELHO -->
 
     <div class="screen" id="hunt">
-
-        <p class="instruction">
-            CLIQUE NO CÍRCULO VERMELHO
-        </p>
-
-        <p id="counter">0 / 10</p>
 
         <button id="target" aria-label="Círculo vermelho"></button>
 
@@ -258,7 +235,6 @@
 
         const hunt = document.getElementById("hunt");
         const target = document.getElementById("target");
-        const counter = document.getElementById("counter");
 
         let clicks = 0;
 
@@ -284,8 +260,6 @@
 
             clicks++;
 
-            counter.textContent = clicks + " / 10";
-
             if (clicks < 10) {
 
                 randomPosition();
@@ -293,7 +267,6 @@
             } else {
 
                 target.style.display = "none";
-                counter.style.display = "none";
 
                 await mostrarSequencia();
 
@@ -388,10 +361,10 @@
             );
 
             const correta = [
-                "0",  // Quadrado
-                "1",  // Círculo
-                "2",  // Losango
-                "0"   // Quadrado
+                "0",
+                "1",
+                "2",
+                "0"
             ];
 
             const acertou = respostas.every(
